@@ -1,15 +1,15 @@
-name: areview
+name: reviewlite
 
 services:
   # Base de Datos PostgreSQL (con soporte pgvector para RSL/embeddings)
   db:
     image: pgvector/pgvector:pg16
-    container_name: areview_db
-    restart: always
+    container_name: reviewlite_db
+    restart: unless-stopped
     env_file:
       - .env
     ports:
-      - "${HOST_BINDING:-127.0.0.1}:${DB_PORT:-5411}:5432"
+      - "${HOST_BINDING:-127.0.0.1}:${DB_PORT:-5409}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -21,8 +21,8 @@ services:
   # Broker y Cache Redis
   redis:
     image: redis:7-alpine
-    container_name: areview_redis
-    restart: always
+    container_name: reviewlite_redis
+    restart: unless-stopped
     ports:
       - "${HOST_BINDING:-127.0.0.1}:${REDIS_PORT_HOST:-${REDIS_HOST_PORT:-6371}}:6379"
     volumes:
@@ -36,7 +36,7 @@ services:
   # Ejecución de migraciones con Alembic
   migrations:
     build: .
-    container_name: areview_migrations
+    container_name: reviewlite_migrations
     user: "${UID:-1000}:${GID:-1000}"
     command: alembic upgrade head
     volumes:
@@ -55,13 +55,14 @@ services:
     restart: on-failure
 
   # Servicio Backend (FastAPI)
-  areview_back:
+  reviewlite_back:
     build: .
-    container_name: areview_back
+    container_name: reviewlite_back
+    restart: unless-stopped
     user: "${UID:-1000}:${GID:-1000}"
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     ports:
-      - "${HOST_BINDING:-127.0.0.1}:${BACKEND_PORT:-${PORT:-8003}}:8000"
+      - "${HOST_BINDING:-127.0.0.1}:${BACKEND_PORT:-${PORT:-8009}}:8000"
     volumes:
       - .:/app
     env_file:
@@ -83,9 +84,10 @@ services:
   # Servicio Celery Worker para tareas asíncronas
   celery_worker:
     build: .
-    container_name: areview_celery
+    container_name: reviewlite_celery
     user: "${UID:-1000}:${GID:-1000}"
     command: celery -A app.workers.celery_app worker --loglevel=info
+    restart: unless-stopped
     volumes:
       - .:/app
     env_file:

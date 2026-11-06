@@ -43,7 +43,7 @@ class SingleAbstractEvaluation(BaseModel):
     """Veredicto individual de la IA para un abstract del lote."""
 
     record_id: str = Field(..., description="UUID del artículo evaluado")
-    decision: ScreeningDecisionEnum = Field(..., description="INCLUDED o EXCLUDED")
+    decision: ScreeningDecisionEnum = Field(..., description="INCLUDED o EXCLUDED o MAYBE")
     reasoning: str = Field(..., description="Explicación detallada basada en el resumen")
 
 
@@ -54,8 +54,9 @@ class AbstractBatchAIScreeningOutput(BaseModel):
 
 
 def _passes_abstract_filter(status_value: ScreeningDecisionEnum) -> Optional[bool]:
-    if status_value == ScreeningDecisionEnum.INCLUDED:
+    if status_value in (ScreeningDecisionEnum.INCLUDED, ScreeningDecisionEnum.MAYBE):
         return True
+    
     if status_value == ScreeningDecisionEnum.EXCLUDED:
         return False
     return None
@@ -73,8 +74,9 @@ def build_abstract_batch_system_instruction() -> str:
         "REGLAS DE EVALUACIÓN:\n"
         "1. Si el abstract demuestra que el estudio no aborda las variables del proyecto o carece de información suficiente, clasifícalo como 'EXCLUDED'.\n"
         "2. Si el abstract confirma que el estudio responde a las variables y objetivos del proyecto, clasifícalo como 'INCLUDED'.\n"
-        "Debes responder en formato JSON estricto devolviendo un objeto con la propiedad 'evaluations', "
-        "donde cada ítem contiene el 'record_id' exacto, la 'decision' (INCLUDED o EXCLUDED) y la fundamentación científica detallada en 'reasoning'."
+        "Debes responder en formato JSON estricto devolviendo un objeto con la propiedad 'evaluations', \n"
+        "3. Si existe duda por falta de contexto pero podría ser relevante, clasifícalo como 'MAYBE'.\n"
+        "donde cada ítem contiene el 'record_id' exacto, la 'decision' (INCLUDED o EXCLUDED o MAYBE) y la fundamentación científica detallada en 'reasoning'."
     )
 
 
