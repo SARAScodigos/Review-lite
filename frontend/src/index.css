@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+/* ==========================================
+   A-REVIEW SYSTEM DESIGN SYSTEM & THEME
+   Fondo Blanco + Acentos Azul y Naranja
+   ========================================== */
+
+:root {
+  --azul: #0056A3;
+  --naranja: #EE8600;
+  --amarillo-facultad: #F1CF00;
+  --amarillo-digital: #FDDB39;
+  --naranja-intenso: #E96B00;
+  --blanco: #FFFFFF;
+  --degradado-digital: linear-gradient(90deg, #FDDB39, #EE8600);
+
+  /* La aplicación conserva las utilidades emerald existentes, pero esta
+     escala las convierte en el azul institucional de A-Review. */
+  --color-emerald-50: #f0f7ff;
+  --color-emerald-100: #ddeeff;
+  --color-emerald-200: #bddfff;
+  --color-emerald-300: #8cc7f4;
+  --color-emerald-400: #4ba4de;
+  --color-emerald-500: #147bc1;
+  --color-emerald-600: #0056a3;
+  --color-emerald-700: #004781;
+  --color-emerald-800: #003b6b;
+  --color-emerald-900: #063359;
+  --color-emerald-950: #03213b;
+
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --border-color: #e2e8f0;
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-light: #64748b;
+
+  --color-green-primary: #0056a3;
+  --color-green-hover: #004781;
+  --color-green-light: #f0f7ff;
+  --color-green-border: #bddfff;
+  --color-green-text: #004781;
+
+  --color-orange-primary: #ee8600;
+  --color-orange-hover: #934b00;
+  --color-orange-light: #fff7ed;
+  --color-orange-border: #ffd2a1;
+  --color-orange-text: #934b00;
+}
+
+/* Variantes para fondos, estados y texto legible. */
+@theme {
+  --color-emerald-50: #f0f7ff;
+  --color-emerald-100: #ddeeff;
+  --color-emerald-200: #bddfff;
+  --color-emerald-300: #8cc7f4;
+  --color-emerald-400: #4ba4de;
+  --color-emerald-500: #147bc1;
+  --color-emerald-600: #0056a3;
+  --color-emerald-700: #004781;
+  --color-emerald-800: #003b6b;
+  --color-emerald-900: #063359;
+  --color-emerald-950: #03213b;
+  --color-blue-50: #f0f7ff;
+  --color-blue-100: #ddeeff;
+  --color-blue-200: #bddfff;
+  --color-blue-300: #8cc7f4;
+  --color-blue-400: #4ba4de;
+  --color-blue-500: #147bc1;
+  --color-blue-600: #0056a3;
+  --color-blue-700: #004781;
+  --color-blue-800: #003b6b;
+  --color-blue-900: #063359;
+  --color-blue-950: #03213b;
+  --color-orange-50: #fff7ed;
+  --color-orange-100: #ffebd2;
+  --color-orange-200: #ffd2a1;
+  --color-orange-300: #ffb568;
+  --color-orange-400: #f49b32;
+  --color-orange-500: #ee8600;
+  --color-orange-600: #b85f00;
+  --color-orange-700: #934b00;
+  --color-orange-800: #783e00;
+  --color-orange-900: #623300;
+  --color-orange-950: #381b00;
+  --color-amber-50: #fffdeb;
+  --color-amber-100: #fff8c2;
+  --color-amber-200: #fff08a;
+  --color-amber-300: #ffe65c;
+  --color-amber-400: #fddb39;
+  --color-amber-500: #f1cf00;
+  --color-amber-600: #8a7400;
+  --color-amber-700: #6f5d00;
+  --color-amber-800: #594b00;
+  --color-amber-900: #493d00;
+  --color-amber-950: #2a2300;
+  --color-yellow-50: #fffdeb;
+  --color-yellow-100: #fff8c2;
+  --color-yellow-200: #fff08a;
+  --color-yellow-300: #ffe65c;
+  --color-yellow-400: #fddb39;
+  --color-yellow-500: #f1cf00;
+  --color-yellow-600: #8a7400;
+  --color-yellow-700: #6f5d00;
+  --color-yellow-800: #594b00;
+  --color-yellow-900: #493d00;
+  --color-yellow-950: #2a2300;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+/* ==========================================
+   COMPONENTES Y CLASES DE TEMA REUTILIZABLES
+   ========================================== */
+
+/* Cards y Paneles Principales */
+.card-theme {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-theme:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
+}
+
+/* Stat Cards (Azul y Naranja) */
+.stat-card-green {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+  border: 1px solid #bddfff;
+}
+
+.stat-card-orange {
+  background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
+  border: 1px solid #ffd2a1;
+}
+
+.stat-card-white {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+/* Botones con los colores del tema */
+.btn-green {
+  background-color: var(--azul);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.15s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 86, 163, 0.18);
+}
+.btn-green:hover {
+  background-color: #004781;
+  transform: translateY(-1px);
+}
+
+.btn-orange {
+  background-color: var(--naranja);
+  color: #0f172a;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.15s ease-in-out;
+  box-shadow: 0 2px 4px rgba(238, 134, 0, 0.15);
+}
+.btn-orange:hover {
+  background-color: #934b00;
+  transform: translateY(-1px);
+}
+
+.btn-outline-theme {
+  background-color: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.15s ease-in-out;
+}
+.btn-outline-theme:hover {
+  background-color: #f8fafc;
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+
+/* Badges y Pastillas de Categoría */
+.badge-green {
+  background-color: #f0f7ff;
+  color: #004781;
+  border: 1px solid #bddfff;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+}
+
+.badge-orange {
+  background-color: #fff7ed;
+  color: #934b00;
+  border: 1px solid #ffd2a1;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+/* Campos de Formulario */
+.input-theme {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+  transition: border-color 0.15s ease-in-out;
+}
+.input-theme:focus {
+  outline: none;
+  border-color: #0056a3;
+  box-shadow: 0 0 0 3px rgba(0, 86, 163, 0.12);
+}
+
+/* Scrollbars limpios para fondo blanco */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Patrón de las pantallas internas; las tarjetas mantienen su propio fondo. */
+.system-background {
+  background-color: #fafbfc;
+  background-image: url('/branding/fondo-sistema.svg');
+  background-repeat: repeat;
+  background-size: 44px 37px;
+}
+
+.system-content > :first-child {
+  background-color: transparent;
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="176" height="148" viewBox="0 0 176 148">
+  <defs>
+    <pattern id="grid" width="88" height="148" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#b8bec7" stroke-opacity=".6" stroke-width=".8">
+        <path d="M0 0h88M0 74h88M0 148h88M0 0l88 148M-44 74 0 148M44 0l44 74M88 0 0 148M0 74 44 0M88 148 44 74"/>
+        <path d="M0 37h22l22-37 22 37h22M0 111h22l22-37 22 37h22M22 37 0 74l22 37 22 37 22-37-22-37 22-37"/>
+      </g>
+      <g fill="#b8bec7" fill-opacity=".75">
+        <circle cx="44" cy="0" r="2"/><circle cx="22" cy="37" r="2"/>
+        <circle cx="66" cy="37" r="2"/><circle cx="0" cy="74" r="2"/>
+        <circle cx="44" cy="74" r="2"/><circle cx="88" cy="74" r="2"/>
+        <circle cx="22" cy="111" r="2"/><circle cx="66" cy="111" r="2"/>
+        <circle cx="44" cy="148" r="2"/>
+      </g>
+    </pattern>
+  </defs>
+  <path fill="#fafbfc" d="M0 0h176v148H0z"/>
+  <path fill="url(#grid)" d="M0 0h176v148H0z"/>
+</svg>
