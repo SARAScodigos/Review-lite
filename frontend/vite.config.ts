@@ -18,11 +18,11 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api/v1': {
-        target: 'http://127.0.0.1:8003',
+        target: 'http://127.0.0.1:8009',
         changeOrigin: true,
       },
       '/health-check': {
-        target: 'http://127.0.0.1:8003',
+        target: 'http://127.0.0.1:8009',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/health-check/, '/'),
       },

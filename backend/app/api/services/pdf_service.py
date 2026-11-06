@@ -65,7 +65,7 @@ def _eligible_pdf_decisions_statement(db: Session, project_id: uuid.UUID):
         .where(ScreeningDecision.screening_session_id == session_obj.id)
         .where(ScreeningDecision.is_duplicate == False)
         .where(ScreeningDecision.title_status.in_([ScreeningDecisionEnum.INCLUDED, ScreeningDecisionEnum.MAYBE]))
-        .where(ScreeningDecision.abstract_status.in_([ScreeningDecisionEnum.PENDING, ScreeningDecisionEnum.INCLUDED]))
+        .where(ScreeningDecision.abstract_status.in_([ScreeningDecisionEnum.PENDING, ScreeningDecisionEnum.INCLUDED, ScreeningDecisionEnum.MAYBE]))
     )
 
 
@@ -110,7 +110,7 @@ def get_pdf_download_candidates_paginated(
         .where(SearchResultFile.project_id == project_id)
         .where(ScreeningDecision.is_duplicate == False)
         .where(ScreeningDecision.title_status.in_([ScreeningDecisionEnum.INCLUDED, ScreeningDecisionEnum.MAYBE]))
-        .where(ScreeningDecision.abstract_status.in_([ScreeningDecisionEnum.PENDING, ScreeningDecisionEnum.INCLUDED]))
+        .where(ScreeningDecision.abstract_status.in_([ScreeningDecisionEnum.PENDING, ScreeningDecisionEnum.INCLUDED,  ScreeningDecisionEnum.MAYBE]))
     )
     session_obj = get_or_create_screening_session(db, project_id)
     count_statement = count_statement.where(ScreeningDecision.screening_session_id == session_obj.id)
@@ -258,7 +258,7 @@ def download_project_pdfs_pipeline(
         .where(ScreeningDecision.screening_session_id == session_obj.id)
         .where(ScreeningDecision.is_duplicate == False)
         .where(ScreeningDecision.title_status.in_([ScreeningDecisionEnum.INCLUDED, ScreeningDecisionEnum.MAYBE]))
-        .where(ScreeningDecision.abstract_status.in_([ScreeningDecisionEnum.PENDING, ScreeningDecisionEnum.INCLUDED]))
+        .where(ScreeningDecision.abstract_status.in_([ScreeningDecisionEnum.PENDING, ScreeningDecisionEnum.INCLUDED, ScreeningDecisionEnum.MAYBE]))
     ).all()
 
     if not victorious_decisions:

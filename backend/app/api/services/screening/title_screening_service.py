@@ -76,7 +76,7 @@ def build_title_batch_system_instruction() -> str:
         "2. Si el título sugiere relación directa o potencial con el problema y las variables, clasifícalo como 'INCLUDED'.\n"
         "3. Si existe duda por falta de contexto en el título pero podría ser relevante, clasifícalo como 'MAYBE'.\n"
         "Debes responder en formato JSON estricto devolviendo un objeto con la propiedad 'evaluations', "
-        "donde cada ítem contiene el 'record_id' exacto, la 'decision' (INCLUDED, EXCLUDED o MAYBE) y una justificación concisa en 'reasoning'."
+        "donde cada ítem contiene el 'record_id' exacto, la 'decision' (INCLUDED, EXCLUDED o MAYBE) y una justificación en español concisa en 'reasoning'."
     )
 
 

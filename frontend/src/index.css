@@ -1,94 +1,104 @@
 @import "tailwindcss";
 
 /* ==========================================
-   A-REVIEW SYSTEM DESIGN SYSTEM & THEME
-   Fondo Blanco + Acentos Azul y Naranja
+   REVIEW LITE SYSTEM DESIGN SYSTEM & THEME
+   Fondo Blanco + Gama Naranja Dorado (Ámbar / Oro Cálido)
    ========================================== */
 
 :root {
-  --azul: #0056A3;
-  --naranja: #EE8600;
-  --amarillo-facultad: #F1CF00;
-  --amarillo-digital: #FDDB39;
-  --naranja-intenso: #E96B00;
-  --blanco: #FFFFFF;
-  --degradado-digital: linear-gradient(90deg, #FDDB39, #EE8600);
+  --dorado: #c25e00;
+  --dorado-brillante: #f59e0b;
+  --dorado-hover: #92400e;
+  --dorado-oscuro: #78350f;
+  --dorado-light: #fffbeb;
+  --dorado-border: #fde68a;
+  --blanco: #ffffff;
+  --degradado-digital: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+
+  /* Acentos complementarios */
+  --naranja: #c25e00;
+  --amarillo-facultad: #f1cf00;
+  --amarillo-digital: #fddb39;
+  --naranja-intenso: #ea580c;
 
   /* La aplicación conserva las utilidades emerald existentes, pero esta
-     escala las convierte en el azul institucional de A-Review. */
-  --color-emerald-50: #f0f7ff;
-  --color-emerald-100: #ddeeff;
-  --color-emerald-200: #bddfff;
-  --color-emerald-300: #8cc7f4;
-  --color-emerald-400: #4ba4de;
-  --color-emerald-500: #147bc1;
-  --color-emerald-600: #0056a3;
-  --color-emerald-700: #004781;
-  --color-emerald-800: #003b6b;
-  --color-emerald-900: #063359;
-  --color-emerald-950: #03213b;
+     escala las convierte en el naranja dorado institucional de Review Lite. */
+  --color-emerald-50: #fffbeb;
+  --color-emerald-100: #fef3c7;
+  --color-emerald-200: #fde68a;
+  --color-emerald-300: #fcd34d;
+  --color-emerald-400: #fbbf24;
+  --color-emerald-500: #f59e0b;
+  --color-emerald-600: #c25e00;
+  --color-emerald-700: #92400e;
+  --color-emerald-800: #78350f;
+  --color-emerald-900: #5a2507;
+  --color-emerald-950: #331302;
 
-  --bg-app: #f8fafc;
+  --bg-app: #fdfcf9;
   --bg-card: #ffffff;
-  --bg-card-hover: #f1f5f9;
-  --border-color: #e2e8f0;
+  --bg-card-hover: #fefce8;
+  --border-color: #f1ede4;
 
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-light: #64748b;
+  --text-main: #1c1917;
+  --text-muted: #57534e;
+  --text-light: #78716c;
 
-  --color-green-primary: #0056a3;
-  --color-green-hover: #004781;
-  --color-green-light: #f0f7ff;
-  --color-green-border: #bddfff;
-  --color-green-text: #004781;
+  --color-green-primary: #c25e00;
+  --color-green-hover: #92400e;
+  --color-green-light: #fffbeb;
+  --color-green-border: #fde68a;
+  --color-green-text: #92400e;
 
-  --color-orange-primary: #ee8600;
-  --color-orange-hover: #934b00;
-  --color-orange-light: #fff7ed;
-  --color-orange-border: #ffd2a1;
-  --color-orange-text: #934b00;
+  --color-orange-primary: #c25e00;
+  --color-orange-hover: #92400e;
+  --color-orange-light: #fffbeb;
+  --color-orange-border: #fde68a;
+  --color-orange-text: #92400e;
 }
 
-/* Variantes para fondos, estados y texto legible. */
+/* Variantes para Tailwind CSS v4 */
 @theme {
-  --color-emerald-50: #f0f7ff;
-  --color-emerald-100: #ddeeff;
-  --color-emerald-200: #bddfff;
-  --color-emerald-300: #8cc7f4;
-  --color-emerald-400: #4ba4de;
-  --color-emerald-500: #147bc1;
-  --color-emerald-600: #0056a3;
-  --color-emerald-700: #004781;
-  --color-emerald-800: #003b6b;
-  --color-emerald-900: #063359;
-  --color-emerald-950: #03213b;
-  --color-blue-50: #f0f7ff;
-  --color-blue-100: #ddeeff;
-  --color-blue-200: #bddfff;
-  --color-blue-300: #8cc7f4;
-  --color-blue-400: #4ba4de;
-  --color-blue-500: #147bc1;
-  --color-blue-600: #0056a3;
-  --color-blue-700: #004781;
-  --color-blue-800: #003b6b;
-  --color-blue-900: #063359;
-  --color-blue-950: #03213b;
-  --color-orange-50: #fff7ed;
-  --color-orange-100: #ffebd2;
-  --color-orange-200: #ffd2a1;
-  --color-orange-300: #ffb568;
-  --color-orange-400: #f49b32;
-  --color-orange-500: #ee8600;
-  --color-orange-600: #b85f00;
-  --color-orange-700: #934b00;
-  --color-orange-800: #783e00;
-  --color-orange-900: #623300;
-  --color-orange-950: #381b00;
-  --color-amber-50: #fffdeb;
-  --color-amber-100: #fff8c2;
-  --color-amber-200: #fff08a;
-  --color-amber-300: #ffe65c;
+  --color-emerald-50: #fffbeb;
+  --color-emerald-100: #fef3c7;
+  --color-emerald-200: #fde68a;
+  --color-emerald-300: #fcd34d;
+  --color-emerald-400: #fbbf24;
+  --color-emerald-500: #f59e0b;
+  --color-emerald-600: #c25e00;
+  --color-emerald-700: #92400e;
+  --color-emerald-800: #78350f;
+  --color-emerald-900: #5a2507;
+  --color-emerald-950: #331302;
+
+  --color-blue-50: #fffbeb;
+  --color-blue-100: #fef3c7;
+  --color-blue-200: #fde68a;
+  --color-blue-300: #fcd34d;
+  --color-blue-400: #fbbf24;
+  --color-blue-500: #f59e0b;
+  --color-blue-600: #c25e00;
+  --color-blue-700: #92400e;
+  --color-blue-800: #78350f;
+  --color-blue-900: #5a2507;
+  --color-blue-950: #331302;
+
+  --color-orange-50: #fffbeb;
+  --color-orange-100: #fef3c7;
+  --color-orange-200: #fde68a;
+  --color-orange-300: #fcd34d;
+  --color-orange-400: #fbbf24;
+  --color-orange-500: #f59e0b;
+  --color-orange-600: #c25e00;
+  --color-orange-700: #92400e;
+  --color-orange-800: #78350f;
+  --color-orange-900: #5a2507;
+  --color-orange-950: #331302;
+
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
   --color-amber-400: #fddb39;
   --color-amber-500: #f1cf00;
   --color-amber-600: #8a7400;
@@ -96,6 +106,7 @@
   --color-amber-800: #594b00;
   --color-amber-900: #493d00;
   --color-amber-950: #2a2300;
+
   --color-yellow-50: #fffdeb;
   --color-yellow-100: #fff8c2;
   --color-yellow-200: #fff08a;
@@ -125,82 +136,82 @@
 /* Cards y Paneles Principales */
 .card-theme {
   background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
   border-radius: 1rem;
   transition: all 0.2s ease-in-out;
 }
 
 .card-theme:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
+  border-color: #fde68a;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.06);
 }
 
-/* Stat Cards (Azul y Naranja) */
+/* Stat Cards (Dorado Cálido) */
 .stat-card-green {
-  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
-  border: 1px solid #bddfff;
+  background: linear-gradient(135deg, #ffffff 0%, #fffbeb 100%);
+  border: 1px solid #fde68a;
 }
 
 .stat-card-orange {
-  background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
-  border: 1px solid #ffd2a1;
+  background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
+  border: 1px solid #fcd34d;
 }
 
 .stat-card-white {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
 }
 
 /* Botones con los colores del tema */
 .btn-green {
-  background-color: var(--azul);
+  background-color: var(--color-green-primary);
   color: #ffffff;
   font-weight: 600;
   border-radius: 0.75rem;
   padding: 0.5rem 1rem;
   transition: all 0.15s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 86, 163, 0.18);
+  box-shadow: 0 2px 4px rgba(194, 94, 0, 0.22);
 }
 .btn-green:hover {
-  background-color: #004781;
+  background-color: var(--color-green-hover);
   transform: translateY(-1px);
 }
 
 .btn-orange {
-  background-color: var(--naranja);
-  color: #0f172a;
+  background-color: #f59e0b;
+  color: #1c1917;
   font-weight: 600;
   border-radius: 0.75rem;
   padding: 0.5rem 1rem;
   transition: all 0.15s ease-in-out;
-  box-shadow: 0 2px 4px rgba(238, 134, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
 }
 .btn-orange:hover {
-  background-color: #934b00;
+  background-color: #d97706;
   transform: translateY(-1px);
 }
 
 .btn-outline-theme {
   background-color: #ffffff;
-  color: #334155;
-  border: 1px solid #cbd5e1;
+  color: #44403c;
+  border: 1px solid #e7e5e4;
   font-weight: 600;
   border-radius: 0.75rem;
   padding: 0.5rem 1rem;
   transition: all 0.15s ease-in-out;
 }
 .btn-outline-theme:hover {
-  background-color: #f8fafc;
-  color: #0f172a;
-  border-color: #94a3b8;
+  background-color: #fffbeb;
+  color: #1c1917;
+  border-color: #fde68a;
 }
 
 /* Badges y Pastillas de Categoría */
 .badge-green {
-  background-color: #f0f7ff;
-  color: #004781;
-  border: 1px solid #bddfff;
+  background-color: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
   font-weight: 600;
   border-radius: 9999px;
   padding: 0.125rem 0.625rem;
@@ -208,9 +219,9 @@
 }
 
 .badge-orange {
-  background-color: #fff7ed;
-  color: #934b00;
-  border: 1px solid #ffd2a1;
+  background-color: #fef3c7;
+  color: #78350f;
+  border: 1px solid #fcd34d;
   font-weight: 600;
   border-radius: 0.5rem;
   padding: 0.125rem 0.5rem;
@@ -220,8 +231,8 @@
 /* Campos de Formulario */
 .input-theme {
   background-color: #ffffff;
-  border: 1px solid #cbd5e1;
-  color: #0f172a;
+  border: 1px solid #e7e5e4;
+  color: #1c1917;
   border-radius: 0.75rem;
   padding: 0.5rem 0.875rem;
   font-size: 0.875rem;
@@ -229,8 +240,8 @@
 }
 .input-theme:focus {
   outline: none;
-  border-color: #0056a3;
-  box-shadow: 0 0 0 3px rgba(0, 86, 163, 0.12);
+  border-color: #c25e00;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.20);
 }
 
 /* Scrollbars limpios para fondo blanco */

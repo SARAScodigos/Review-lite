@@ -76,7 +76,7 @@ def build_abstract_batch_system_instruction() -> str:
         "2. Si el abstract confirma que el estudio responde a las variables y objetivos del proyecto, clasifícalo como 'INCLUDED'.\n"
         "Debes responder en formato JSON estricto devolviendo un objeto con la propiedad 'evaluations', \n"
         "3. Si existe duda por falta de contexto pero podría ser relevante, clasifícalo como 'MAYBE'.\n"
-        "donde cada ítem contiene el 'record_id' exacto, la 'decision' (INCLUDED o EXCLUDED o MAYBE) y la fundamentación científica detallada en 'reasoning'."
+        "donde cada ítem contiene el 'record_id' exacto, la 'decision' (INCLUDED o EXCLUDED o MAYBE) y la fundamentación científica en español detallada en 'reasoning'."
     )
 
 

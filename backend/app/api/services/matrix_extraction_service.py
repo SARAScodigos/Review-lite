@@ -95,7 +95,7 @@ def _matrix_candidate_statement(db: Session, project_id: uuid.UUID):
         .where(ScreeningDecision.screening_session_id == session_obj.id)
         .where(ScreeningDecision.is_duplicate == False)
         .where(ScreeningDecision.title_status.in_([ScreeningDecisionEnum.INCLUDED, ScreeningDecisionEnum.MAYBE]))
-        .where(ScreeningDecision.abstract_status.in_([ScreeningDecisionEnum.PENDING, ScreeningDecisionEnum.INCLUDED]))
+        .where(ScreeningDecision.abstract_status.in_([ScreeningDecisionEnum.PENDING, ScreeningDecisionEnum.INCLUDED, ScreeningDecisionEnum.MAYBE]))
     )
 
 
@@ -552,7 +552,7 @@ def run_batch_matrix_extraction_pipeline(
         .where(ScreeningDecision.screening_session_id == session_obj.id)
         .where(ScreeningDecision.is_duplicate == False)
         .where(ScreeningDecision.title_status.in_([ScreeningDecisionEnum.INCLUDED, ScreeningDecisionEnum.MAYBE]))
-        .where(ScreeningDecision.abstract_status.in_([ScreeningDecisionEnum.PENDING, ScreeningDecisionEnum.INCLUDED]))
+        .where(ScreeningDecision.abstract_status.in_([ScreeningDecisionEnum.PENDING, ScreeningDecisionEnum.INCLUDED, ScreeningDecisionEnum.MAYBE]))
         .where(
             (ExtractedMatrixRow.id == None)
             | (ExtractedMatrixRow.review_status == ExtractionReviewStatus.DRAFT)

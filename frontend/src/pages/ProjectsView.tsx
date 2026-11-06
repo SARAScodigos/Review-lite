@@ -150,14 +150,12 @@ export const ProjectsView: React.FC = () => {
     setProjectComment('');
 
     setFormObjectives([
-      { key: 'OB1', value: 'Identificar las principales técnicas de IA usadas.' },
-      { key: 'OB2', value: 'Evaluar las limitaciones reportadas en la literatura.' },
+      
     ]);
     setFormInclusionCriteria([
-      'Artículos revisados por pares.',
-      'Publicaciones entre 2020 y 2026.',
+      
     ]);
-    setFormExclusionCriteria(['Literatura gris.', 'Estudios sin texto completo.']);
+    setFormExclusionCriteria([]);
     setFormInclusionInput('');
     setFormExclusionInput('');
 
